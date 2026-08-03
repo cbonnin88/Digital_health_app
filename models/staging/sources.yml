@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: digital_health_app_raw
+    description: 'Raw data ingested from GCS via FiveTran'
+    database: product-analytics-494706
+    schema: digital_health_raw
+    tables:
+      - name: users
+      - name: sessions
+      - name: events
+      - name: documents
