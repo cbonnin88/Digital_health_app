@@ -17,10 +17,8 @@ dataset = 'dbt_health_app'
 
 st.set_page_config(page_title='EuroHealth Product Dashboard',layout='wide')
 
-from google.colab import auth
 import google.auth
 
-auth.authenticate_user()
 credentials, _ = google.auth.default()
 client = bigquery.Client(credentials=credentials, project=project_id)
 
