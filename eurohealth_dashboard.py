@@ -131,7 +131,7 @@ with st.spinner('Loading Funnel data...'):
           title='Activity by Category',
           labels={'user_count':'Number of users','funnel_step':'Funnel Step'}
       )
-      fig_bar.update_layout(xaxis_tickangle=-70)
+      fig_bar.update_layout(xaxis_tickangle=-50)
       st.plotly_chart(fig_bar,use_container_width=True)
         
   else:
