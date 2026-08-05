@@ -126,9 +126,10 @@ with st.spinner('Loading Funnel data...'):
       st.bar_chart(
           data=df_funnel.set_index('funnel_step'),
           y='user_count',
-          width='stretch'
+          width='stretch',
+          title='Activity by Category'
+          labels={'user_count':'Number of users'}
       )
   else:
     st.warning('No data found for the Product Funnel.')
-
 st.sidebar.success('Dashboard successfully connected to BigQuery!')
