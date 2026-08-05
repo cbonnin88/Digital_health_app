@@ -125,7 +125,7 @@ with st.spinner('Loading Funnel data...'):
 
     with col2:
       fig_bar = px.bar(
-          data=df_funnel.set_index('funnel_step'),
+          df_funnel.set_index('funnel_step'),
           x='funnel_step',
           y='user_count',
           width='stretch',
