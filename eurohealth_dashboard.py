@@ -115,7 +115,7 @@ with st.spinner('Loading Funnel data...'):
     with col1:
       st.dataframe(df_funnel, hide_index=True)
 
-      # Calculate and display the overall conversation rate
+      # Calculate and display the overall conversion rate
       initial_users = df_funnel.iloc[0]['user_count']
       final_users = df_funnel.iloc[-1]['user_count']
       if initial_users > 0:
@@ -123,13 +123,18 @@ with st.spinner('Loading Funnel data...'):
         st.metric(label='Overall Conversion Rate',value=f'{conversion_rate:.1f}%')
 
     with col2:
-      st.bar_chart(
+      fig_bar = px.bar(
           data=df_funnel.set_index('funnel_step'),
+          x='funnel_step',
           y='user_count',
           width='stretch',
           title='Activity by Category',
-          labels={'user_count':'Number of users'}
+          labels={'user_count':'Number of users','funnel_step':'Funnel Step}
       )
+      fig_bar.update_layout(xaxis_tickangle=90)
+      st.plotly_chart(fig_bar,use_container_width=True)
+        
   else:
     st.warning('No data found for the Product Funnel.')
+      
 st.sidebar.success('Dashboard successfully connected to BigQuery!')
