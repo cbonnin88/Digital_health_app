@@ -128,7 +128,6 @@ with st.spinner('Loading Funnel data...'):
           df_funnel,
           x='funnel_step',
           y='user_count',
-          width='stretch',
           title='Activity by Category',
           labels={'user_count':'Number of users','funnel_step':'Funnel Step'}
       )
